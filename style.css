@@ -624,12 +624,12 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
 font-family: serif;
-	color: #4f5257;
+	/* color: #4f5257; */
 	/* margin: 0; */
 	/* padding: 0; */
 	border: 0;
 	outline: 0;
-	font-size: 100%;
+	font-size: 1em;
 	vertical-align: baseline;
 	background: transparent;
 	max-width: 100%;
@@ -703,19 +703,27 @@ html, body {
 		width: 100% !important;
 		text-align: center;
 		}
-	a:link {
-		text-decoration: underline;
-		color: #263a99;
+		
+/* remove socialink from print out */
+.socialink {
+	display: none;
 }
 
-a:visited {
-		text-decoration: underline;
-		color: #6398e7;
-}
-	a:hover, a:active {
-		text-decoration: underline;
-		color: #004dbf;
+/* change link styling for print */
+a:link, a:visited {
+			text-decoration:underline;
+			color:#520;
+			font-weight:bold;
 		}
+
+/* deal with links, acronyms, and abbreviations in posts */
+.storycontent a:link:after, .storycontent a:visited:after {
+										content: " (" attr(href) ")";
+									}
+
+.storycontent abbr:after, .storycontent acronym:after {
+	content: " (" attr(title) ")";
+}
 
 /* @group HEADER */
 
@@ -962,7 +970,7 @@ span.metamore {
 	margin: 0;
 }
 
-#single .post h3 a {
+#single .post h3 {
 	font-size: 1em;
 	font-weight: bold;
 	text-decoration: none;
@@ -970,6 +978,12 @@ span.metamore {
 	text-shadow: #fff 0 -1px 0;
 	
 }
+
+#single .post h3.storytitle a:link, #single .post h3.storytitle a:visited {
+			text-decoration:underline;
+			color:#520;
+			font-weight:bold;
+		}
 
 
 #single .post .meta {
@@ -1217,26 +1231,4 @@ font: bold 16px Helvetica, Geneva, Arial, sans-serif;
 	display: inline;
 	border: 1px solid #fff;
 }
-
-/* remove socialink from print out */
-.socialink {
-	display: none;
-}
-
-/* change link styling for print */
-a:link, a:visited {
-			text-decoration:underline;
-			color:#520;
-			font-weight:bold;
-		}
-
-/* deal with links, acronyms, and abbreviations in posts */
-.storycontent a:link:after, .storycontent a:visited:after {
-										content: " (" attr(href) ")";
-									}
-
-.storycontent abbr:after, .storycontent acronym:after {
-	content: " (" attr(title) ")";
-}
-
 }
