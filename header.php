@@ -7,6 +7,8 @@
  
  if ($this->request->display_search) {  echo "Search for '".htmlspecialchars( $criteria )."' - ";  }
  
+ if ($request->display_entries_by_tag && isset( $tag )) { echo(ucwords(Tags::get_by_slug($tag)->term_display) . ' - '); }
+ 
  ?><?php Options::out( 'title' ) ?></title>
  <meta http-equiv="Content-Type" content="text/html">
  <meta name="generator" content="Habari">
@@ -14,33 +16,14 @@
  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="<?php $theme->feed_alternate(); ?>">
  <link rel="edit" type="application/atom+xml" title="Atom Publishing Protocol" href="<?php URL::out( 'atompub_servicedocument' ); ?>">
  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php URL::out( 'rsd' ); ?>">
-
- <link rel="stylesheet" type="text/css" media="screen" href="<?php Site::out_url( 'theme' ); ?>/style.css">
  
  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' /> 
  <meta name='apple-mobile-web-app-capable' content='no' /> 
  
  <link rel="apple-touch-icon" href="<?php Site::out_url( 'theme' ); ?>/apple-touch-icon.png"/>
 <link rel="icon" type="image/vnd.microsoft.icon" href="<?php Site::out_url( 'theme' ); ?>/favicon.ico" />
- 
- 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 
-<script type="text/javascript" >
-$(document).ready(function() {
-$('#header a#menu').click( function() {
-    $('#supernavcontainer').toggle();
-   });
-});
-
-$(document).ready(function() {
-$('#commentb').click( function() {
-    $('#commentarea').toggle();
-   });
-});
-</script>
-
-<?php $theme->header(); ?>
+<?php echo $theme->header(); ?>
 
 </head>
 

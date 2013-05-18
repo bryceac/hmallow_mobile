@@ -81,12 +81,29 @@ class MyTheme extends Theme
 		
 	}
 
-	public function filter_theme_call_header( $return, $theme )
+	// place to holder header content
+	public function action_template_header($theme)
 	{
-		if ( User::identify() != FALSE ) {
-			Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
-		}
-		return $return;
+		Stack::add('template_stylesheet', $theme->get_url('/style.css'));
+		Stack::add( 'template_header_javascript', Site::get_url('scripts') . '/jquery.js', 'jquery' );
+		Stack::add( 'template_header_javascript', array($this->hmallow_script(), 'type="text/javascript"'));
+	}
+	
+	// move Javascript from header file to theme function
+	private function hmallow_script()
+	{
+		$mscript = "$(document).ready(function() {
+$('#header a#menu').click( function() {
+    $('#supernavcontainer').toggle();
+   });
+});
+
+$(document).ready(function() {
+$('#commentb').click( function() {
+    $('#commentarea').toggle();
+   });
+});";
+		return $mscript;
 	}
 	
 	public function k2_comment_class( $comment, $post )
