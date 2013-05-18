@@ -23,6 +23,6 @@ Theme: <a href="http://www.somefoolwitha.com/hmallow2" title="hMallow Mobile">hM
 
 
 
-<?php $theme->footer(); ?>
+<?php echo $theme->footer(); ?>
 
 
