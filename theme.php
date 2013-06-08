@@ -5,7 +5,7 @@
  *
  * @package Habari
  */
-
+namespace Habari;
 // We must tell Habari to use MyTheme as the custom theme class:
 define( 'THEME_CLASS', 'MyTheme' );
 
@@ -77,7 +77,7 @@ class MyTheme extends Theme
 
 			//from mzingi			
 			//for recent comments loop in sidebar.php
-			$this->assign('recent_comments', Comments::get( array('limit'=>5, 'status'=>Comment::STATUS_APPROVED, 'orderby'=>'date DESC' ) ) );
+			$this->assign('recent_comments', Comments::get( array('limit'=>5, 'status'=>Comment::status('approved'), 'orderby'=>'date DESC' ) ) );
 		
 	}
 
