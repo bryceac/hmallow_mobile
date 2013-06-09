@@ -1,6 +1,6 @@
- <?php namespace Habari; ?>
- <div id="header">
- <h1><a href="<?php Site::out_url( 'habari' ); ?>" title="<?php Options::out( 'title' ); ?>"><?php Options::out( 'title' ); ?></a> <span><?php Options::out( 'tagline' ); ?></span><a id="menu" a href="#">MENU</a></h1>
+<?php namespace Habari; ?>
+<div id="header">
+<h1><a href="<?php Site::out_url( 'habari' ); ?>" title="<?php Options::out( 'title' ); ?>"><?php Options::out( 'title' ); ?></a> <span><?php Options::out( 'tagline' ); ?></span><a id="menu" a href="#">MENU</a></h1>
  </div>
 
 
