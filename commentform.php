@@ -1,3 +1,4 @@
+<?php namespace Habari; ?>
 <!-- commentsform -->
 
 <?php // Do not delete these lines

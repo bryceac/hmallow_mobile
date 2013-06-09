@@ -1,3 +1,4 @@
+<?php namespace Habari; ?>
 <?php // get header ?>
 <?php $theme->display ( 'header'); ?>
 
