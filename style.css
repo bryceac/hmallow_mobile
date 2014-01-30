@@ -718,6 +718,9 @@ a:link, a:visited {
 
 /* deal with links, acronyms, and abbreviations in posts */
 .storycontent a:link:after, .storycontent a:visited:after {
+										display:inline-block;
+										margin-left:5px;
+										font-style:normal;
 										content: " (" attr(href) ")";
 									}
 
